@@ -194,7 +194,6 @@
 
         <section id="formulario" class="section">
             <h2>Formulario de Consulta</h2>
-        <!-- modify this form HTML and place wherever you want your form -->
             <form  class="formulario" 
             action="https://formspree.io/f/xzzgpava"
             method="POST"
@@ -207,10 +206,36 @@
                 mensaje:
                 <textarea name="message" required></textarea>
             </label>
-            <!-- your other form fields go here -->
             <button type="submit">Enviar</button>
             </form>
         </section>
+        <script>
+            document.querySelector('.formulario').addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const form = e.target;
+                const data = new FormData(form);
+
+                const btn = form.querySelector('button[type="submit"]');
+                btn.disabled = true;
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: form.method,
+                        body: data,
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    if (response.ok) {
+                        form.reset();
+                        alert('¡Consulta enviada correctamente!');
+                    } else {
+                        alert('Ocurrió un error al enviar. Intenta nuevamente.');
+                    }
+                } catch (error) {
+                    alert('Ocurrió un error de red. Intenta nuevamente.');
+                }
+                btn.disabled = false;
+            });
+        </script>
         <section id="ubicacion" class="section">
             <h2>Ubícanos</h2>
            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1950.89689649884!2d-77.02675399899788!3d-12.057704359572895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8bc7a8443d3%3A0x9a56d9d268ac3ee1!2sCAJA%20TRUJILLO!5e0!3m2!1ses-419!2spe!4v1748582106575!5m2!1ses-419!2spe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
