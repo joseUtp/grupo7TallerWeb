@@ -85,36 +85,6 @@ footer {
   font-size: 0.9em;
 }
 
-.formulario {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  max-width: 500px;
-  margin: auto;
-}
-
-.formulario input,
-.formulario textarea {
-  padding: 0.75em;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-family: 'Roboto', sans-serif;
-}
-
-.formulario button {
-  background: #b4022d;
-  color: white;
-  border: none;
-  padding: 0.75em;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.formulario button:hover {
-  background: #8a0303;
-}
 
 /* FAQ Moderna - acordeón estilo tarjetas */
 .faq-section {
@@ -278,4 +248,64 @@ footer {
     align-items: center;
     text-align: center;
     padding: 40px 20px;
+}
+
+
+
+------------
+#formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f8f8f8;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.formulario label {
+    width: 100%;
+    margin-bottom: 15px;
+    font-weight: 500;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.formulario input,
+.formulario textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    resize: none;
+    box-sizing: border-box;
+}
+
+.formulario button {
+    margin-top: 10px;
+    padding: 10px 30px;
+    background: #e30613;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.formulario button:hover {
+    background: #b2050f;
 }
