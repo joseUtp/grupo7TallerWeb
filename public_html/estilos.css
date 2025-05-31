@@ -1,0 +1,281 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&family=Oswald:wght@400&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+header.hero {
+  background: linear-gradient(to right, #8a0303, #b4022d);
+  color: white;
+  padding: 2em 1em;
+  text-align: center;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2em;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #fdd835;
+}
+
+.hero-content {
+  padding-top: 2em;
+}
+
+.section {
+  padding: 3em 2em;
+  background: white;
+}
+
+.section:nth-child(even) {
+  background: #fafafa;
+}
+
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1em;
+}
+
+.producto {
+  background: #fff;
+  padding: 1.5em;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+footer {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 1em;
+  font-size: 0.9em;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  max-width: 500px;
+  margin: auto;
+}
+
+.formulario input,
+.formulario textarea {
+  padding: 0.75em;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.formulario button {
+  background: #b4022d;
+  color: white;
+  border: none;
+  padding: 0.75em;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.formulario button:hover {
+  background: #8a0303;
+}
+
+/* FAQ Moderna - acordeón estilo tarjetas */
+.faq-section {
+  background-color: #f9f9f9;
+  padding: 3em 2em;
+}
+
+.faq-container {
+  max-width: 900px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.faq-item {
+  background-color: #fff;
+  border-radius: 0.75em;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.06);
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.faq-item input {
+  display: none;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: #B4022D;
+  color: white;
+  font-size: 1.1em;
+  position: relative;
+}
+
+.faq-question .arrow::before {
+  content: '▼';
+  transition: transform 0.3s ease;
+}
+
+.faq-item input:checked + .faq-question .arrow::before {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 1em;
+  background-color: #fff;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+}
+
+.faq-item input:checked ~ .faq-answer {
+  max-height: 300px;
+  padding: 1em;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 0.5em;
+  }
+  .faq-question {
+    font-size: 1em;
+  }
+}
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* Relación 16:9 */
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.reduced-video {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.ofrecemos {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+}
+
+.ofrecemos h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: #002b5c;
+}
+
+.ofrecemos-contenido {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.columna-izquierda, .columna-derecha {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    flex: 1;
+    max-width: 250px;
+}
+
+.columna-central {
+    text-align: center;
+    flex: 1;
+    max-width: 300px;
+}
+
+.ofrecemos-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: left;
+}
+
+.ofrecemos-item img {
+    width: 40px;
+    height: 40px;
+}
+
+.imagen-central {
+    width: 100%;
+    max-width: 200px;
+    margin-bottom: 20px;
+}
+
+.titulo-central {
+    font-size: 1.4rem;
+    color: #002b5c;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+}
