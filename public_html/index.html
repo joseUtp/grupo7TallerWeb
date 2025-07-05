@@ -26,18 +26,31 @@
                 <li><a href="#preguntas">Preguntas Frecuentes</a></li>
                 <li><a href="#formulario">Formulario</a></li>
                 <li><a href="#ubicacion">Ubícanos</a></li>
+                <li>
+                <a href="pages/register.html" class="btn-modal nav-btn">Ingresar</a>
+                </li>            
             </ul>
         </nav>
-        <section id="inicio" class="hero-content">
-            <h2>Bienvenido a Caja Trujillo</h2>
-            <p>Tu caja municipal de confianza.</p>
-        </section>
     </header>
 
     <main>
 
 <section id="nosotros" class="section">
-    <div style="display: flex; justify-content: center; margin-bottom: 30px;">
+    <div class="carrusel-con-texto">
+        <div class="carrusel-imagenes">
+            <img src="OFRECEMOS/inicio (1).jpg" alt="Imagen 1" class="carrusel-img active">
+            <img src="OFRECEMOS/inicio2 (1).jpg" alt="Imagen 2" class="carrusel-img">
+            <img src="OFRECEMOS/inicio3 (1).jpg" alt="Imagen 3" class="carrusel-img">
+            <img src="OFRECEMOS/inicio4 (1).jpg" alt="Imagen 3" class="carrusel-img">
+        </div>
+        <div class="texto-sobre-imagen">
+            <h2>¡Impulsa tu futuro con Caja Trujillo!</h2>
+            <p>Confianza, solidez y apoyo para tu crecimiento.</p>
+            <button id="abrir-modal" class="btn-modal">Crear cuenta bancaria</button>
+        </div>
+    </div>
+    </div>
+    <div style="display: flex; justify-content: center; margin-bottom: 30px; margin-top: 30px;">
         <video width="768" height="432" autoplay muted loop controls>
             <source src="VIDEOS/VIDEOINICIO.mp4" type="video/mp4">
         </video>
@@ -246,6 +259,51 @@
     <footer>
         <p>&copy; 2025 Caja Trujillo - Todos los derechos reservados.</p>
     </footer>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Carrusel
+        const imagenes = document.querySelectorAll('.carrusel-img');
+        let actual = 0;
+        setInterval(() => {
+            imagenes[actual].classList.remove('active');
+            actual = (actual + 1) % imagenes.length;
+            imagenes[actual].classList.add('active');
+        }, 3500);
+
+        // Botones para abrir modales
+        const botones = [
+            { id: 'abrir-modal', archivo: './pages/modal-cuenta.html' },
+        ];
+
+        botones.forEach(({ id, archivo }) => {
+            const btn = document.getElementById(id);
+            if (btn) {
+                btn.addEventListener('click', () => {
+                    // Cierra menú móvil si está abierto
+                    const menuToggle = document.getElementById('menu-toggle');
+                    if (menuToggle && menuToggle.checked) {
+                        menuToggle.checked = false;
+                    }
+
+                    fetch(archivo)
+                        .then(res => res.text())
+                        .then(html => {
+                            const modalDiv = document.createElement('div');
+                            modalDiv.id = 'modal-externo';
+                            modalDiv.innerHTML = html;
+                            document.body.appendChild(modalDiv);
+
+                            modalDiv.addEventListener('click', function (e) {
+                                if (e.target.id === 'modal-externo' || e.target.classList.contains('cerrar-modal')) {
+                                    modalDiv.remove();
+                                }
+                            });
+                        });
+                });
+            }
+        });
+    });
+</script>
 
 </body>
 </html>

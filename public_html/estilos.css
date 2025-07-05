@@ -15,7 +15,7 @@ body {
   font-family: 'Roboto', sans-serif;
   background-color: #f0f0f0;
   color: #333;
-  padding-top: 110px;
+  padding-top: 40px;
 }
 
 main {
@@ -433,5 +433,130 @@ footer {
   }
   .faq-container {
     padding: 0 0.2em;
+  }
+}
+
+.btn-modal {
+  margin-top: 1em;
+  padding: 0.7em 1.5em;
+  background: #e30613;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-modal:hover {
+  background: #b2050f;
+}
+
+.modal-fondo {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-contenido {
+  background: #fff;
+  padding: 2em 1.5em;
+  border-radius: 12px;
+  max-width: 95vw;
+  width: 350px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  position: relative;
+}
+.cerrar-modal {
+  background: none;
+  border: none;
+  color: #e30613;
+  cursor: pointer;
+  position: absolute;
+  top: 10px; right: 15px;
+}
+.formulario-cuenta label {
+  display: block;
+  margin-bottom: 1em;
+  color: #333;
+}
+.formulario-cuenta input {
+  width: 100%;
+  padding: 0.5em;
+  margin-top: 0.3em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.formulario-cuenta button[type="submit"] {
+  background: #e30613;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.7em 1.5em;
+  font-size: 1em;
+  cursor: pointer;
+  margin-top: 1em;
+}
+.formulario-cuenta button[type="submit"]:hover {
+  background: #b2050f;
+}
+
+
+
+.carrusel-con-texto {
+  position: relative;
+  width: 100vw;
+  max-width: 100vw;
+  overflow: hidden;
+  height: 900px;
+}
+
+.carrusel-imagenes {
+  width: 100vw;
+  height: 100%;
+  position: relative;
+}
+
+.carrusel-img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100vw;
+  height:900px;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s;
+  z-index: 1;
+}
+
+.carrusel-img.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.texto-sobre-imagen {
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  transform: translateY(-50%);
+  color: #fff;
+  text-shadow: 2px 2px 8px #000a;
+  background: rgba(0,0,0,0.25);
+  padding: 1.2em 2em;
+  border-radius: 10px;
+  max-width: 80vw;
+  z-index: 3;
+}
+
+@media (max-width: 700px) {
+  .carrusel-con-texto, .carrusel-img {
+    height: 250x;
+  }
+  .texto-sobre-imagen {
+    left: 4%;
+    padding: 0.7em 1em;
+    font-size: 1em;
+    max-width: 92vw;
   }
 }
